@@ -21,6 +21,13 @@ public class CourseApiController {
         return ResponseEntity.ok("Course created with ID: " + course.getId());
     }
 
+    // Allows other classes (like DataLoader) to add courses programmatically
+    public void addCourse(Course course) {
+        course.setId(idCounter++);
+        courseMap.put(course.getId(), course);
+    }
+
+
     @GetMapping
     public Collection<Course> getAllCourses() {
         return courseMap.values();

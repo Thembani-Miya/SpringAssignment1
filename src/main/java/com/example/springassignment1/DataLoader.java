@@ -4,9 +4,6 @@ import com.example.springassignment1.model.Course;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Component
 public class DataLoader {
 
@@ -18,23 +15,23 @@ public class DataLoader {
 
     @PostConstruct
     public void init() {
-        // Creating sample courses
         Course c1 = new Course();
-        c1.setName("Computer Architecture");
-        c1.setLevel("Undergraduate");
+        c1.setName("Introduction to Programming");
+        c1.setLevel("Foundation");
 
         Course c2 = new Course();
-        c2.setName("Software Engineering");
+        c2.setName("Data Structures");
         c2.setLevel("Undergraduate");
 
         Course c3 = new Course();
-        c3.setName("Advanced Algorithms");
+        c3.setName("Machine Learning");
         c3.setLevel("Honours");
 
-        // Add them using the controller’s method
-        controller.createCourse(c1);
-        controller.createCourse(c2);
-        controller.createCourse(c3);
+        controller.addCourse(c1);
+        controller.addCourse(c2);
+        controller.addCourse(c3);
+
+        System.out.println("📦 Sample courses loaded!");
     }
 }
 
